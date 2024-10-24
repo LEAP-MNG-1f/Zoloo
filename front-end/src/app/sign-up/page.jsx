@@ -1,6 +1,8 @@
+"use client";
+
 import Link from "next/link";
 
-export default function Login() {
+export default function Signup() {
   const BACKEND_ENDPOINT = "http://localhost:4000/sign-up";
 
   const handleSubmit = async (event) => {
@@ -31,8 +33,8 @@ export default function Login() {
             <img className="w-[120px] h-[50px] " src="./Geld.png" alt="" />
           </div>
           <div className="flex flex-col items-center justify-center">
-            <h1 className="h1">Welcome Back</h1>
-            <p>Welcome back, Please enter your details</p>
+            <h1 className="h1">Create Geld account</h1>
+            <p>Sign up below to create your Wallet account</p>
           </div>
           <form
             action=""
@@ -44,28 +46,48 @@ export default function Login() {
                 type="text"
                 name="name"
                 className="border p-2 rounded-lg "
-                placeholder="email"
+                placeholder="Name"
+              />
+
+              <input
+                type="text"
+                name="name"
+                className="border p-2 rounded-lg "
+                placeholder="Email"
               />
 
               <input
                 type="password"
                 name="password"
                 className="border p-2 rounded-lg"
-                placeholder="password"
+                placeholder="Password"
+              />
+
+              <input
+                type="password"
+                name="password"
+                className="border p-2 rounded-lg"
+                placeholder="Re-password"
               />
             </div>
-            <button className="btn btn-primary rounded-xl">Log in</button>
+            <Link
+              className="flex items-center justify-center"
+              href={"/loading"}
+            >
+              <button className="btn btn-primary rounded-xl bg-blue-700">
+                Sign up
+              </button>
+            </Link>
             <div className="flex justify-center items-center gap-2">
-              <p className="text-base">Don't have account?</p>
+              <p className="text-base">Already have account?</p>
 
-              <Link href={"/"}>
+              <Link href={"/login"}>
                 <button className="btn">
-                  <span className="loading loading-spinner"></span>Sign up
+                  <span className="loading loading-spinner"></span>Login
                 </button>
               </Link>
             </div>
           </form>
-
           <div className="bg-blue-100" href="/"></div>
         </div>
       </div>

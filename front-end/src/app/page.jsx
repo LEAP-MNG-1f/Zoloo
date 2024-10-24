@@ -1,8 +1,7 @@
 "use client";
 
-import Link from "next/link";
-import Login from "./components/login";
-import Signup from "./components/Signup";
+import Login from "./login/page";
+import Signup from "./sign-up/page";
 
 export default function Home() {
   // const BACKEND_ENDPOINT = "http://localhost:4000/sign-up";
@@ -30,7 +29,6 @@ export default function Home() {
   return (
     <div>
       <Login />
-      <Signup />
     </div>
   );
 }

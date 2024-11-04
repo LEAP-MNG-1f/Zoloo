@@ -5,7 +5,7 @@ const app = express();
 app.use(bodyParser.json());
 const port = 4000;
 
-const users = [
+let users = [
   { id: 1, name: "Zoloo", age: 85 },
   { id: 2, name: "Dash", age: 80 },
   { id: 3, name: "Zulaa", age: 75 },
@@ -47,19 +47,54 @@ app.post("/users", (request, response) => {
     throw new Error(error);
   }
 });
+app.put("/users", (request, response) => {
+  const { id, updatedName, updatedAge } = request.body;
+
+  if (!id) {
+    return response.send("id not found");
+  }
+  if (!updatedName && !updatedAge) {
+    return response.send("2uulaa bhqui bna");
+  }
+
+  users.find((user) => {
+    if (user.id == id) {
+      user.name = updatedName ? updatedName : user.name;
+      user.age = updatedAge ? updatedAge : user.age;
+      return user;
+    }
+  });
+  response.send(users);
+});
+
+app.delete("/users", (request, response) => {
+  const { id } = request.body;
+
+  const filteredUsers = users.filter((user) => {
+    if (user.id !== id) {
+      return user;
+    }
+  });
+  users = filteredUsers;
+  //id taarahgui bol -> user not existed
+  response.json(users);
+});
+
+// const existingUser = users.find((user) => user.id === id);
+// if (existingUser) {
+//   return response.send({
+//     error: "User with this ID already exists",
+//   });
+// }
+
+// Check if user with same ID already exists
 
 //   response.send(request.body);
 
 //   if (!name || typeof age !== "number") {
 //     return response.send({ error: "name and ages are required" });
 //   }
-//   // Check if user with same ID already exists
-//   const existingUser = users.find((user) => user.id === id);
-//   if (existingUser) {
-//     return response.send({
-//       error: "User with this ID already exists",
-//     });
-//   }
+//
 //   const newUser = {
 //     id: id,
 //     name: name,

@@ -1,9 +1,26 @@
 "use client";
-
+import { useEffect, useState } from "react";
 import Login from "./login/page";
 import Signup from "./sign-up/page";
 
 export default function Home() {
+  const [users, setUser] = useState([]);
+  // console.log(process.env.NEXT_PUBLIC_TEST);
+  useEffect(() => {
+    try {
+      const fetchData = async () => {
+        const response = await fetch("DATABASE_URL");
+        const data = await response.json();
+        setUser(data);
+        // console.log(response);
+      };
+      fetchData();
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+  // console.log(users[0]);
+
   // const BACKEND_ENDPOINT = "http://localhost:4000/sign-up";
 
   // const handleSubmit = async (event) => {
@@ -28,6 +45,11 @@ export default function Home() {
 
   return (
     <div>
+      <div className="flex flex-col w-20 h-20 border">
+        {users.map((user, index) => {
+          return <div key={index}>{user.name}</div>;
+        })}
+      </div>
       <Login />
       {/* <Dashboard /> */}
     </div>

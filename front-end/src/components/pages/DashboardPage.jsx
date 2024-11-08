@@ -1,5 +1,6 @@
 // import { Header } from "../components/Header";
 
+import { CarouselCard } from "../components/CarouselCard";
 import { Header } from "../components/Header";
 
 // export const DashboardPage = () => {
@@ -31,8 +32,9 @@ import { Header } from "../components/Header";
 
 export const DashboardPage = () => {
   return (
-    <div className="w-full">
+    <div className="w-full gap-8">
       <Header dashboard={true} records={false} />
+      <CarouselCard />
     </div>
   );
 };

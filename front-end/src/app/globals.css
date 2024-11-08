@@ -9,7 +9,29 @@
   font-weight: 600;
   line-height: 32px;
 }
+.cash {
+  color: var(--d--colors-semantic-primary-content, #fff);
+  /* text-align: center; */
 
+  /* tailwind/text-base */
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  opacity: 0.5;
+}
+.money {
+  color: var(--d--colors-semantic-primary-content, #fff);
+  /* text-align: center; */
+
+  /* 🌼 DaisyUI/heading-2 */
+  font-family: Roboto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px; /* 133.333% */
+}
 /* :root {
   --background: #ffffff;
   --foreground: #171717;

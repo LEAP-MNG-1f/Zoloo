@@ -7,6 +7,10 @@
 //     }).format(Math.abs(value));
 //   };
 
+import { ExpenseCard } from "./ExpenseCard";
+import { GeldCard } from "./GeldCard";
+import { IncomeCard } from "./IncomeCard";
+
 //   return (
 //     <Card className={isBlue ? "bg-blue-600 text-white" : ""}>
 //       <CardContent className="p-6">
@@ -36,3 +40,13 @@
 //     </Card>
 //   );
 // };
+
+export const CarouselCard = () => {
+  return (
+    <div className="w-full flex gap-6 px-[120px] justify-between">
+      <GeldCard />
+      <IncomeCard />
+      <ExpenseCard />
+    </div>
+  );
+};
